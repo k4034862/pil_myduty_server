@@ -1,5 +1,5 @@
 package com.example.demo.service;
-import com.example.demo.User.User;
+import com.example.demo.Model.User;
 import com.example.demo.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

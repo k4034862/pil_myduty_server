@@ -1,8 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.User.User;
+import com.example.demo.Model.User;
 import com.example.demo.service.AccountService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

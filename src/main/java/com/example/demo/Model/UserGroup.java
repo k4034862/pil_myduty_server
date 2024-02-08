@@ -1,9 +1,9 @@
-package com.example.demo.User;
+package com.example.demo.Model;
 
 import lombok.Data;
 
 @Data
-public class User {
+public class UserGroup {
 //    사용자아이디
     private String USER_ID;
 //    사용자 이름
