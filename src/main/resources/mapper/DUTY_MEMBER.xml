@@ -19,52 +19,37 @@
 
 <!--    조회 sql-->
     <select id="select" resultType="com.example.demo.Model.User">
-        SELECT USER_ID,PASSWORD
-        FROM DUTY_MEMBER
-        WHERE 1=1
-        AND USER_ID = #{USER_ID}
-        AND PASSWORD = #{PASSWORD}
+        CALL sp_duty_member_s (
+            #{USER_ID},
+            #{PASSWORD})
     </select>
 
 <!--    아이디 찾기 sql-->
     <select id="findId" resultType="com.example.demo.Model.User">
-        SELECT USER_ID,PASSWORD
-        FROM DUTY_MEMBER
-        WHERE 1=1
-        AND USER_NM = #{USER_NM}
-        AND USER_EMAIL = #{USER_EMAIL}
-        AND USER_TEL = #{USER_TEL}
+        CALL sp_duty_member_s_findId (
+            #{USER_ID},
+            #{PASSWORD})
     </select>
 
 <!--    비밀번호 찾기 sql-->
     <select id="findPw" resultType="com.example.demo.Model.User">
-        SELECT USER_ID,PASSWORD
-        FROM DUTY_MEMBER
-        WHERE 1=1
-        AND USER_ID = #{USER_ID}
-        AND USER_NM = #{USER_NM}
-        AND USER_EMAIL = #{USER_EMAIL}
-        AND USER_TEL = #{USER_TEL}
+      CALL sp_duty_member_s_findPw(
+          #{USER_ID},
+          #{USER_NM},
+          #{USER_EMAIL},
+          #{USER_TEL})
     </select>
 
 <!--    회원가입 sql-->
     <insert id="insert" parameterType="com.example.demo.Model.User">
-        INSERT INTO DUTY_MEMBER(
-        USER_ID
-        ,USER_NM
-        ,PASSWORD
-        ,USER_TEL
-        ,USER_EMAIL
-        ,USE_YN
-        ,CREATE_DATE
-        ) VALUES(
-        #{USER_ID}
-        ,#{USER_NM}
-        ,#{PASSWORD}
-        ,#{USER_TEL}
-        ,#{USER_EMAIL}
-        ,#{USE_YN}
-        ,#{CREATE_DATE}
-        )
+        CALL sp_duty_member_i(
+                #{USER_ID}
+               ,#{USER_NM}
+               ,#{PASSWORD}
+               ,#{USER_TEL}
+               ,#{USER_EMAIL}
+               ,#{USE_YN}
+               ,#{CREATE_ID}
+               ,#{UPDATE_ID})
     </insert>
 </mapper>

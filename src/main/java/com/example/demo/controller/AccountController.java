@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.Model.Calendar;
 import com.example.demo.Model.User;
 import com.example.demo.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,9 @@ public class AccountController {
         return accountService.findPw(user);
     }
     //회원가입 버튼
-    @PostMapping("/insert")
-    public void insertUser(User user ){
+    @RequestMapping(value ="insert", method = RequestMethod.POST)
+    public void insertUser(User user) {
         accountService.insert(user);
     }
+
 }

@@ -10,8 +10,8 @@ import java.util.List;
 @Mapper
 public interface CalendarMapper
 {
-    List<Calendar> select(Calendar calendar);
+    List<Calendar> select(List<Calendar> calendar);
     //List<Calendar> findId(Calendar calendar);
     //List<Calendar> findPw(Calendar calendar);
-    //void insert(Calendar calendar);
+    void insert(Calendar calendar);
 }
