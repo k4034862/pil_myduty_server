@@ -13,5 +13,5 @@ public interface UserGroupMapper
     List<UserGroup> select(UserGroup userGroup);
     List<UserGroup> findId(UserGroup userGroup);
     List<UserGroup> findPw(UserGroup userGroup);
-    void insert(UserGroup userGroup);
+    String insert(UserGroup userGroup);
 }

@@ -1,5 +1,6 @@
 package com.example.demo.service;
 import com.example.demo.Model.Calendar;
+import com.example.demo.Model.User;
 import com.example.demo.Model.UserGroup;
 import com.example.demo.mapper.CalendarMapper;
 import com.example.demo.mapper.UserGroupMapper;
@@ -14,11 +15,10 @@ import java.util.List;
 public class UserGroupService {
     @Autowired
     private UserGroupMapper userGroupMapper;
-    public List<UserGroup> select(UserGroup userGroup) {
-        List<UserGroup> userGroupList;
-        userGroupList = userGroupMapper.select(userGroup);
 
-        return userGroupList;
+    public String insert(UserGroup userGroup){
+        return userGroupMapper.insert(userGroup);
     }
+
 
 }

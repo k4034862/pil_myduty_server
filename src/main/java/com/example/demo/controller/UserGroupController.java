@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.Model.Calendar;
 import com.example.demo.Model.UserGroup;
 import com.example.demo.service.UserGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +14,10 @@ public class UserGroupController {
     @Autowired
     private UserGroupService userGroupService;
     //일정 조회
-    @RequestMapping(value ="userGroupSelect" ,method = RequestMethod.GET)
-    public List<UserGroup> getSelectList(UserGroup userGroup){
+    @RequestMapping(value ="friendAdd", method = RequestMethod.GET)
+    public String getSelectList(UserGroup userGroup){
 
-        return userGroupService.select(userGroup);
+        return userGroupService.insert(userGroup);
     }
 
 }
