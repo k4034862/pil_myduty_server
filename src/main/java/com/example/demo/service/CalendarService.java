@@ -13,7 +13,7 @@ import java.util.List;
 public class CalendarService {
     @Autowired
     private CalendarMapper calendarMapper;
-    public List<Calendar> select(Calendar calendar) {
+    public List<Calendar> select(List<Calendar> calendar) {
         List<Calendar> calendarList;
         calendarList = calendarMapper.select(calendar);
 
