@@ -16,4 +16,11 @@ public class UserGroup {
     private String UPDATE_DATE;
     //    수정자
     private String UPDATE_ID;
+    //    RETRUN
+    private String MESSAGE;
+    //    시작일자
+    private String START_DATE;
+    //    종료일자
+    private String END_DATE;
+
 }

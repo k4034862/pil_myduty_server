@@ -16,8 +16,15 @@ public class UserGroupController {
     //일정 조회
     @RequestMapping(value ="friendAdd", method = RequestMethod.GET)
     public String getSelectList(UserGroup userGroup){
-
-        return userGroupService.insert(userGroup);
+        String userId = userGroup.getUSER_ID();
+        String userIdFn = userGroup.getUSER_ID_FN();
+        String message = null; // 메시지 초기화
+        String message1 =  userGroupService.callFriendManagementProcedure(userId, userIdFn,message);
+        return message1;
     }
+    @RequestMapping(value ="friendSelect" ,method = RequestMethod.GET)
+    public List<UserGroup> getFriendList(UserGroup userGroup){
 
+        return userGroupService.select(userGroup);
+    }
 }

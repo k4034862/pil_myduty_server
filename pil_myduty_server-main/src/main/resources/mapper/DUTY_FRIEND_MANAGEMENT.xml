@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+<!-- UserGroupMapper.xml -->
 <mapper namespace="com.example.demo.mapper.UserGroupMapper">
 
-
-
-<!--    조회 sql-->
-    <select id="insert" resultType="com.example.demo.Model.UserGroup">
-        CALL sp_duty_friend_management_i(
-        #{USER_ID},
-        #{USER_ID_FN}
+    <!-- 프로시저 호출을 위한 update 태그 사용 -->
+    <select  id="callFriendManagementProcedure" parameterType="hashmap" resultType="hashmap" statementType="CALLABLE">
+        <!-- 프로시저 호출을 위한 call 구문 -->
+        call sp_duty_friend_management_i(
+        #{_USER_ID, mode=IN, jdbcType=VARCHAR, javaType=java.lang.String},
+        #{_USER_ID_FN, mode=IN, jdbcType=VARCHAR, javaType=java.lang.String},
+        #{_MESSAGE, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String}
         )
-    </select>
+    </select >
+
+    <select  id="select" parameterType="hashmap" resultType="hashmap" statementType="CALLABLE">
+        <!-- 프로시저 호출을 위한 call 구문 -->
+        call sp_duty_friend_management_s(
+        #{START_DATE, mode=IN, jdbcType=VARCHAR, javaType=java.lang.String},
+        #{END_DATE, mode=IN, jdbcType=VARCHAR, javaType=java.lang.String},
+        #{USER_ID, mode=IN, jdbcType=VARCHAR, javaType=java.lang.String}
+        )
+    </select >
+
 </mapper>
